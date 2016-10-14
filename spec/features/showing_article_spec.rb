@@ -7,7 +7,7 @@ RSpec.feature "Showing an article" do
   end
 
   scenario 'Display individual article' do
-    visit '/'
+    visit "/"
 
     click_link @article.title
 
