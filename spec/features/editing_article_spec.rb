@@ -3,8 +3,19 @@ require 'rails_helper'
 RSpec.feature "Editing an article" do
 
   before do
+    @john = User.create!(email: "example@example.com", password: "password")
     @article = Article.create(title: "First Article", body: "Body of first article")
-  end
+
+
+  visit "/"
+
+ click_link "Log in"
+ fill_in "Email", with: @john.email
+ fill_in "Password", with: @john.password
+ click_button "Log in"
+end
+    
+ 
 
   scenario "user updates an article" do
     visit "/"
